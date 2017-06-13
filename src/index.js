@@ -30,5 +30,6 @@ function chop(searchVal, array) {
   if(!isSorted){
     throw 'the array must be sorted';
   }
+
   return searchVal;
 }
