@@ -43,9 +43,6 @@ describe('Binary search function', function(){
   });
 
   describe('Valid input cases', function(){
-    it('should always return an integer greater than or equal to -1', function(){
-    });
-
     it('should return -1 if the array is empty', function(){
       expect(chop(3, [])).toEqual(-1);
     });
@@ -56,7 +53,7 @@ describe('Binary search function', function(){
       expect(chop(-1, [1, 2, 3, 5, 8, 9])).toEqual(-1);
     });
 
-    it('should return the index of the first occurence of the target', function(){
+    it('should return the index of the target', function(){
       expect(chop(3, [1, 2, 3, 5, 8, 9])).toEqual(2);
       expect(chop(9, [1, 2, 3, 5, 8, 9])).toEqual(5);
       expect(chop(1, [1, 2, 3, 5, 8, 9])).toEqual(0);
@@ -64,6 +61,28 @@ describe('Binary search function', function(){
       expect(chop(5, [1, 2, 3, 5, 8, 9])).toEqual(3);
       expect(chop(8, [1, 2, 3, 5, 8, 9])).toEqual(4);
 
+      //Additional tests from http://codekata.com/kata/kata02-karate-chop/
+      expect(chop(3, [])).toEqual(-1);
+      expect(chop(3, [1])).toEqual(-1);
+      expect(chop(1, [1])).toEqual(0);
+      //
+      expect(chop(1, [1, 3, 5])).toEqual(0);
+      expect(chop(3, [1, 3, 5])).toEqual(1);
+      expect(chop(5, [1, 3, 5])).toEqual(2);
+      expect(chop(0, [1, 3, 5])).toEqual(-1);
+      expect(chop(2, [1, 3, 5])).toEqual(-1);
+      expect(chop(4, [1, 3, 5])).toEqual(-1);
+      expect(chop(6, [1, 3, 5])).toEqual(-1);
+      //
+      expect(chop(1, [1, 3, 5, 7])).toEqual(0);
+      expect(chop(3, [1, 3, 5, 7])).toEqual(1);
+      expect(chop(5, [1, 3, 5, 7])).toEqual(2);
+      expect(chop(7, [1, 3, 5, 7])).toEqual(3);
+      expect(chop(0, [1, 3, 5, 7])).toEqual(-1);
+      expect(chop(2, [1, 3, 5, 7])).toEqual(-1);
+      expect(chop(4, [1, 3, 5, 7])).toEqual(-1);
+      expect(chop(6, [1, 3, 5, 7])).toEqual(-1);
+      expect(chop(8, [1, 3, 5, 7])).toEqual(-1);
     });
   });
 

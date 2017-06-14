@@ -35,6 +35,14 @@ function chop(searchVal, array) {
   if (array.length === 0 ) {
     return -1;
   }
+  if(array.length === 1) {
+      if(array[0] !== searchVal) {
+        return -1;
+      }
+      else {
+        return 0;
+      }
+  }
 
   function bSearch(start, stop){
 
@@ -46,10 +54,9 @@ function chop(searchVal, array) {
       start = midpoint + 1;
     }
     else {
-      console.log("midpoint equals value: " + midpoint);
       return midpoint;
     }
-    
+
     if(stop === start){
       if(array[stop] === searchVal){
         return stop;
@@ -61,11 +68,7 @@ function chop(searchVal, array) {
       return bSearch(start, stop);
     }
 
-    return targetIndex;
-
   }
 
-  var result = bSearch(0, array.length - 1);
-  return result;
-
+  return bSearch(0, array.length - 1);
 }
