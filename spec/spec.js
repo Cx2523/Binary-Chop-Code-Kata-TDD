@@ -43,13 +43,28 @@ describe('Binary search function', function(){
   });
 
   describe('Valid input cases', function(){
-    it('should always return an integer greater than or equal to -1', function(){});
+    it('should always return an integer greater than or equal to -1', function(){
+    });
 
-    it('should return -1 if the array is empty', function(){});
+    it('should return -1 if the array is empty', function(){
+      expect(chop(3, [])).toEqual(-1);
+    });
 
-    it('should return -1 if the target is not found', function(){});
+    it('should return -1 if the target is not found', function(){
+      expect(chop(12, [1, 2, 3, 5, 8, 9])).toEqual(-1);
+      expect(chop(4, [1, 2, 3, 5, 8, 9])).toEqual(-1);
+      expect(chop(-1, [1, 2, 3, 5, 8, 9])).toEqual(-1);
+    });
 
-    it('should return the index of the first occurence of the target', function(){});
+    it('should return the index of the first occurence of the target', function(){
+      expect(chop(3, [1, 2, 3, 5, 8, 9])).toEqual(2);
+      expect(chop(9, [1, 2, 3, 5, 8, 9])).toEqual(5);
+      expect(chop(1, [1, 2, 3, 5, 8, 9])).toEqual(0);
+      expect(chop(2, [1, 2, 3, 5, 8, 9])).toEqual(1);
+      expect(chop(5, [1, 2, 3, 5, 8, 9])).toEqual(3);
+      expect(chop(8, [1, 2, 3, 5, 8, 9])).toEqual(4);
+
+    });
   });
 
 });

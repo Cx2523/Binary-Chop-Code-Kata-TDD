@@ -1,4 +1,5 @@
 function chop(searchVal, array) {
+
   if( arguments.length !== 2 ){
     throw 'invalid number of arguments';
   }
@@ -23,7 +24,7 @@ function chop(searchVal, array) {
   };
   var isSorted = true;
   for (var i = 0; i < array.length - 1; i++){
-    if(array[i + 1] - array[i] < 0) {
+    if(array[i + 1] < array[i]) {
       isSorted = false;
     }
   }
@@ -31,5 +32,40 @@ function chop(searchVal, array) {
     throw 'the array must be sorted';
   }
 
-  return searchVal;
+  if (array.length === 0 ) {
+    return -1;
+  }
+
+  function bSearch(start, stop){
+
+    var midpoint = Math.floor((stop - start) / 2) + start;
+
+    if (array[midpoint] > searchVal) {
+      stop = midpoint;
+    } else if(array[midpoint] < searchVal ){
+      start = midpoint + 1;
+    }
+    else {
+      console.log("midpoint equals value: " + midpoint);
+      return midpoint;
+    }
+    
+    if(stop === start){
+      if(array[stop] === searchVal){
+        return stop;
+      }
+      else {
+        return -1;
+      }
+    } else {
+      return bSearch(start, stop);
+    }
+
+    return targetIndex;
+
+  }
+
+  var result = bSearch(0, array.length - 1);
+  return result;
+
 }
